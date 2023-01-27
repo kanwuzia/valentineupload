@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <title>Interswitch Photo Upload</title>
+    
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style>
+
+      :root {
+        --blue: #18425D;
+        --backgroundgrey: #F3F5F6;
+        --powderwhite:  #F9FAFB;
+        --headerblack: #4B4B4B;
+        --white: #FFFFFF;
+        --bordergrey: #E5E7EB;
+        --activeblue: #096DD9;
+        --inactiveblue: #A8D6EF;
+        --midgray: #7F91A8;
+        --labeltext: #353F50;
+        --primaryblue: #00425f;
+        --primarybluelight: #EBF8FE;
+        --gray: #1F2937;
+        --primaryblueghost: #479FC8;
+        --red: #ee312a;
+        --lightred: #D76156;
+      }
+
+      body {
+        font-family: 'Averta' !important;
+        background-color: #e8f8ff;
+      }
+
+      .background{
+        display: flex;
+        max-width: 1280px;
+        margin: 0 auto;
+        justify-content: space-between;
+        align-items: center;
+        padding: 80px;
+      }
+      .form {
+        max-width: 400px;
+        background: #fff;
+        border-radius: 6px;
+        padding: 40px 50px;
+        box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+      }
+      input{
+        width: 300px;
+        display: block;
+        outline: none;
+        margin-bottom: 1rem;
+        padding: 8px 12px;
+        border: 1px solid #6a717c;
+        border-radius: 4px;
+        margin-top: 8px;
+      }
+      .primary__button{
+        background-color: var(--inactiveblue);
+        /* background-color: blue; */
+        width: 100%;
+        color: var(--white);
+        border-radius: 8px;
+        cursor: pointer;
+        border: none;
+        padding: 14px 76px;
+      }
+
+      .download{
+        color: #fff;
+        padding: 12px 24px;
+        width: 100%;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        margin-top: 20px;
+        background-color: var(--activeblue);
+      }
+      label {
+        font-size: 14px;
+        color: #00425f;
+      }
+      #test-box{
+        width: 500px;
+        height: 500px;
+        background-position: center;
+        /* background-image:  url('assets/MicrosoftTeams-image\ \(14\).png');; */
+        
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        padding: 20px;
+        visibility: hidden;
+        
+      }
+      #download{
+        visibility: hidden;
+      }
+      .image{
+        max-width: 300px;
+        padding-top: 45%;
+        padding-left: 20%;
+        /* position: absolute;
+        bottom: 50px; */
+        left: 20%;
+      }
+      .image img{
+        width: 100%;
+      }
+      .details{
+        display: flex;
+        justify-content: space-around;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1.5px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="background">
+      <!-- Form Upload Input Section -->
+      <form action="" name="upload-form">
+        <div class="form">
+          <div class="input--field">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="nameInput" name="fullName" placeholder="i.e Uju Ayo Abubakar" class="input__work" onkeyup="enableSubmit()">
+          </div>
+          <div class="input--field">
+            <label for="locationInput">Company Location</label>
+            <input type="text" id="locationInput" name="locationInput" placeholder="i.e Interswitch, Lagos" class="input__work" onkeyup="enableSubmit()">
+          </div>
+          <div class="input--field">
+            <label for="imagee">Upload Image</label>
+            <input type="file"  accept="image/*" name="image" id="file" onchange="enableSubmit()">
+          </div> 
+          <button class="primary__button" id="submit" disabled >Submit</button>
+        </div>  
+      </form>
+    
+
+      <!-- Image Upload Display -->
+      <div>
+        <div id ="test-box">
+          <div class="logo">
+    
+          </div>
+          <div class="image">
+            <img src="assets/MicrosoftTeams-image (16).png" alt="">
+          </div>
+          <div class="details">
+            <p id="name"></p>
+            <p id="location"></p>
+          </div>
+        </div>
+        <button id="download" class="download">Download</button>
+      </div>
+    </section>
+   
+    
+
+   <script>
+        const button = document.getElementById('submit')
+        const frame = document.getElementById('test-box');
+        const file = document.getElementById('file');
+        const reader = new FileReader();
+        const download = document.getElementById('download');
+        const form = document.getElementsByTagName('form')
+        
+        console.log(button)
+
+        let fileValue;
+
+
+        reader.addEventListener("load", function () {
+          frame.style.backgroundImage = `linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1)), url(${reader.result})`;
+         }, false);
+
+         
+         function enableSubmit() {
+          let inputs = document.getElementsByClassName('input__work'); // Enter your class name for a required field, this should also be reflected within your form fields.
+          
+          let isValid = true;
+          for (var i = 0; i < inputs.length; i++) {
+            let changedInput = inputs[i];
+            if (changedInput.value.trim() === "" || changedInput.value === null) {
+              isValid = false;
+              break;
+            }
+          }
+          if (file.value === "") {
+            fileValue = false;
+          }else {fileValue = true }
+
+          button.disabled = !(isValid && fileValue);
+          
+          if (!button.disabled) {
+            button.style.backgroundColor = 'var(--activeblue)';
+          }
+          else {
+            button.style.backgroundColor = 'var(--inactiveblue)';
+          }
+        }
+
+        button.addEventListener ('click' , function (e) {
+          e.preventDefault();
+
+          let fullName = document.getElementById('nameInput').value;
+          let workplace = document.getElementById('locationInput').value;   
+
+          const image = file.files[0];
+          if(image) reader.readAsDataURL(image);
+
+          let nameElement = document.getElementById('name');
+          let locationElement = document.getElementById('location');  
+
+          nameElement.innerHTML = fullName;
+          locationElement.innerHTML = workplace;
+
+          frame.style.visibility = "visible";
+          download.style.visibility = "visible";
+
+          form.reset()
+        })
+
+        document.getElementById("download").addEventListener("click", function() {
+          let fullName = document.getElementById('nameInput').value;
+		      html2canvas(document.getElementById("test-box"),
+          {
+            allowTaint: true,
+            useCORS: true
+          }).then(function (canvas) {
+            var anchorTag = document.createElement("a");
+            document.body.appendChild(anchorTag);
+            // document.getElementById("previewImg").appendChild(canvas);
+            anchorTag.download = `${fullName}.jpg`;
+            anchorTag.href = canvas.toDataURL();
+            anchorTag.target = '_blank';
+            anchorTag.click();
+          });
+        });
+     
+    </script>
+    </script>
+  </body>
+</html>
