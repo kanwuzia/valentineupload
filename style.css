@@ -1,0 +1,117 @@
+/* ROOT ATTRIBUTES */
+
+@font-face {
+  font-family: "Averta";
+  src: url("/assets/Averta-web-font/Averta-Bold.woff2") format("woff2"),
+    url("/Averta-web-font/Averta-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Averta";
+  src: url("/assets/Averta-web-font/Averta-BoldItalic.woff2") format("woff2"),
+    url("/assets/Averta-web-font/Averta-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Averta";
+  src: url("/assets/Averta-web-font/Averta-Thin.woff2") format("woff2"),
+    url("/assets/Averta-web-font/Averta-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Averta";
+  src: url("/assets/Averta-web-font/Averta-SemiboldItalic.woff2")
+      format("woff2"),
+    url("/assets/Averta-web-font/Averta-SemiboldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Averta";
+  src: url("/assets/Averta-web-font/Averta-ThinItalic.woff2") format("woff2"),
+    url("/assets/Averta-web-font/Averta-ThinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Averta";
+  src: url("/assets/Averta-web-font/Averta-Light.woff2") format("woff2"),
+    url("/assets/Averta-web-font/Averta-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Averta";
+  src: url("/assets/Averta-web-font/Averta-Regular.woff2") format("woff2"),
+    url("/assets/Averta-web-font/Averta-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Averta Extrathin";
+  src: url("/assets/Averta-web-font/Averta-Extrathin.woff2") format("woff2"),
+    url("/assets/Averta-web-font/Averta-Extrathin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Averta";
+  src: url("/assets/Averta-web-font/Averta-BlackItalic.woff2") format("woff2"),
+    url("/assets/Averta-web-font/Averta-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Averta";
+  src: url("/assets/Averta-web-font/Averta-Black.woff2") format("woff2"),
+    url("/assets/Averta-web-font/Averta-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Averta Extrathin";
+  src: url("/assets/Averta-web-font/Averta-ExtrathinItalic.woff2")
+      format("woff2"),
+    url("/assets/Averta-web-font/Averta-ExtrathinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Averta";
+  src: url("/assets/Averta-web-font/Averta-Semibold.woff2") format("woff2"),
+    url("/assets/Averta-web-font/Averta-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Averta";
+  src: url("/assets/Averta-web-font/Averta-ExtraBoldItalic.woff2")
+      format("woff2"),
+    url("/assets/Averta-web-font/Averta-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Averta";
+  src: url("/assets/Averta-web-font/Averta-LightItalic.woff2") format("woff2"),
+    url("/assets/Averta-web-font/Averta-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Averta";
+  src: url("/assets/Averta-web-font/Averta-RegularItalic.woff2") format("woff2"),
+    url("/assets/Averta-web-font/Averta-RegularItalic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Averta";
+  src: url("/assets/Averta-web-font/Averta-ExtraBold.woff2") format("woff2"),
+    url("/assets/Averta-web-font/Averta-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
