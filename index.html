@@ -20,106 +20,9 @@
     <!--[if IE]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <style>
-      :root {
-        --blue: #18425d;
-        --backgroundgrey: #f3f5f6;
-        --powderwhite: #f9fafb;
-        --headerblack: #4b4b4b;
-        --white: #ffffff;
-        --bordergrey: #e5e7eb;
-        --activeblue: #096dd9;
-        --inactiveblue: #a8d6ef;
-        --midgray: #7f91a8;
-        --labeltext: #353f50;
-        --primaryblue: #00425f;
-        --primarybluelight: #ebf8fe;
-        --gray: #1f2937;
-        --primaryblueghost: #479fc8;
-        --red: #ee312a;
-        --lightred: #d76156;
-      }
-
-      body {
-        font-family: "Averta" !important;
-        background-color: #e8f8ff;
-      }
-      .background {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-      }
-
-      .form {
-        max-width: 500px;
-        background: #fff;
-        border-radius: 6px;
-        padding: 40px;
-        box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
-      }
-      form {
-        width: 100%;
-      }
-      textarea {
-        width: 100%;
-        display: block;
-        outline: none;
-        border: 1px solid #6a717c;
-        border-radius: 4px;
-        margin-top: 8px;
-      }
-      .primary__button {
-        background-color: var(--activeblue);
-        /* background-color: blue; */
-        width: 100%;
-        color: var(--white);
-        border-radius: 8px;
-        cursor: pointer;
-        border: none;
-        padding: 14px 76px;
-      }
-
-      .download {
-        color: #fff;
-        padding: 12px 24px;
-        width: 100%;
-        border-radius: 6px;
-        border: none;
-        cursor: pointer;
-        margin-top: 20px;
-        background-color: var(--activeblue);
-      }
-      label {
-        font-size: 14px;
-        color: #00425f;
-      }
-      #test-box {
-        position: relative;
-        padding: 20px;
-      }
-      .image {
-        max-width: 500px;
-      }
-      .image img {
-        width: 100%;
-      }
-      .image-upload {
-        text-align: center;
-      }
-      .details {
-        position: absolute;
-        color: var(--gray);
-        max-width: 320px;
-        font-size: 14px;
-        top: 51%;
-        left: 21%;
-        text-align: center;
-      }
-    </style>
   </head>
   <body>
-    <section class="background">
+    <div class="background">
       <!-- Form Upload Input Section -->
 
       <div class="form">
@@ -142,7 +45,7 @@
       </div>
 
       <!-- Image Upload Display -->
-      <!-- <div class="image-upload">
+      <div class="image-upload">
         <div id="test-box">
           <div class="image">
             <img src="assets/TYCard All (1).png" alt="" />
@@ -154,8 +57,8 @@
         <div class="button--container">
           <button id="download" class="download">Download</button>
         </div>
-      </div> -->
-    </section>
+      </div>
+    </div>
 
     <script>
       function charCount(textarea) {
@@ -177,10 +80,10 @@
         e.preventDefault();
 
         let textUpdate = document.getElementById("textUpdate").value;
-        console.log(textUpdate);
+        let newString = textUpdate.replace(/(\r\n|\n|\r)/gm, "");
         let specialText = document.querySelector(".input--text");
 
-        specialText.innerText = textUpdate;
+        specialText.innerText = newString;
         // locationElement.innerHTML = workplace;
 
         form.reset();
