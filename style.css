@@ -154,7 +154,6 @@ body {
   justify-content: space-around;
   align-items: center;
 }
-
 .form {
   width: 500px;
   background: #fff;
@@ -214,28 +213,49 @@ label {
   width: 100%;
 }
 .image-upload {
+  text-align: center !important;
+}
+.details-container {
+  width: 300px !important;
+  /* height: 300px; */
+  z-index: 8;
+  background-color: transparent;
+  position: absolute;
+  top: 55%;
+  left: 20%;
+}
+
+.details--inner{
+  position: relative;
   text-align: center;
+  align-items: center;
+  display: flex;
+
 }
 .details {
-  position: absolute;
   color: var(--gray);
-  max-width: 320px;
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
   font-size: 15px;
-  line-height: 24px;
-  top: 53%;
-  left: 18%;
-  text-align: center;
+  line-height: 22px;
+  text-align: center !important;
 }
-@media screen and (max-width: 425px) {
+
+.details > div {
+  width: 100%;
+  position: relative;
+}
+
+/* @media screen and (max-width: 1025px){
+  .background{
+    padding: 20px;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 768px) {
   .background {
-    flex-direction: column !important;
-    /* flex-direction: column !important; */
-    padding: 40px;
+    flex-direction: column;
+    width: 100%;
   }
-  .image-upload {
-    width: 100% !important;
-  }
-  .form {
-    width: 100% !important;
-  }
-}
+} */

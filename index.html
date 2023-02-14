@@ -36,10 +36,10 @@
               id="textUpdate"
               cols="30"
               rows="10"
-              maxlength="250"
+              maxlength="100"
               onkeyup="charCount(this)"
             ></textarea>
-            <p><span id="textcount">250</span>/250</p>
+            <p><span id="textcount">100</span>/100</p>
           </div>
         </form>
       </div>
@@ -50,8 +50,12 @@
           <div class="image">
             <img src="assets/TYCard All (1).png" alt="" />
           </div>
-          <div class="details">
-            <p class="input--text"></p>
+          <div class="details-container">
+            <div class="details--inner">
+              <div class="details">
+                <p class="input--text"></p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="button--container">
@@ -62,20 +66,20 @@
 
     <script>
       function charCount(textarea) {
-        let max = 250;
+        let max = 100;
         let length = textarea.value.length;
         if (length > max) {
-          textarea.value = textarea.value.substring(0, 250);
+          textarea.value = textarea.value.substring(0, 100);
         } else {
           let textCount = document.getElementById("textcount");
           textCount.innerText = max - length;
         }
 
         let textUpdate = document.getElementById("textUpdate").value;
-        let newString = textUpdate.replace(/(\r\n|\n|\r)/gm, "");
+        // let newString = textUpdate.replace(/(\r\n|\n|\r)/gm, "");
         let specialText = document.querySelector(".input--text");
 
-        specialText.innerText = newString;
+        specialText.innerText = textUpdate;
       }
 
       document
