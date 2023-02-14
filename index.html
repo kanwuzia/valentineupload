@@ -15,14 +15,16 @@
       referrerpolicy="no-referrer"
     ></script>
     <link rel="stylesheet" href="style.css" />
-    <title>Interswitch Photo Upload</title>
+    <title>Interswitch Valentine</title>
 
     <!--[if IE]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <style></style>
   </head>
   <body>
-    <div class="background">
+    <div class="background new">
       <!-- Form Upload Input Section -->
 
       <div class="form">
@@ -39,8 +41,6 @@
             ></textarea>
             <p><span id="textcount">250</span>/250</p>
           </div>
-
-          <button class="primary__button" id="submit">Submit</button>
         </form>
       </div>
 
@@ -64,30 +64,19 @@
       function charCount(textarea) {
         let max = 250;
         let length = textarea.value.length;
-        console.log(length);
         if (length > max) {
           textarea.value = textarea.value.substring(0, 250);
         } else {
           let textCount = document.getElementById("textcount");
           textCount.innerText = max - length;
         }
-      }
-
-      const button = document.getElementById("submit");
-      const form = document.getElementsByTagName("form");
-
-      button.addEventListener("click", function (e) {
-        e.preventDefault();
 
         let textUpdate = document.getElementById("textUpdate").value;
         let newString = textUpdate.replace(/(\r\n|\n|\r)/gm, "");
         let specialText = document.querySelector(".input--text");
 
         specialText.innerText = newString;
-        // locationElement.innerHTML = workplace;
-
-        form.reset();
-      });
+      }
 
       document
         .getElementById("download")
@@ -106,132 +95,6 @@
             anchorTag.click();
           });
         });
-
-      // document.getElementById("download").addEventListener("click", function() {
-      //   let fullName = document.getElementById('nameInput').value;
-      //   html2canvas(document.getElementById("test-box"),
-      //   {
-      //     allowTaint: true,
-      //     useCORS: true
-      //   }).then(function (canvas) {
-      //     var anchorTag = document.createElement("a");
-      //     document.body.appendChild(anchorTag);
-      //     // document.getElementById("previewImg").appendChild(canvas);
-      //     anchorTag.download = `${fullName}.jpg`;
-      //     anchorTag.href = canvas.toDataURL();
-      //     anchorTag.target = '_blank';
-      //     anchorTag.click();
-      //   });
-      // });
-
-      // function enableSubmit() {
-      //   let inputs = document.getElementsByClassName("input__work"); // Enter your class name for a required field, this should also be reflected within your form fields.
-
-      //   let isValid = true;
-      //   for (var i = 0; i < inputs.length; i++) {
-      //     let changedInput = inputs[i];
-      //     if (changedInput.value.trim() === "" || changedInput.value === null) {
-      //       isValid = false;
-      //       break;
-      //     }
-      //   }
-      //   if (file.value === "") {
-      //     fileValue = false;
-      //   } else {
-      //     fileValue = true;
-      //   }
-
-      //   button.disabled = !(isValid && fileValue);
-
-      //   if (!button.disabled) {
-      //     button.style.backgroundColor = "var(--activeblue)";
-      //   } else {
-      //     button.style.backgroundColor = "var(--inactiveblue)";
-      //   }
-      // }
     </script>
-
-    <!-- <script>
-        const button = document.getElementById('submit')
-        const frame = document.getElementById('test-box');
-        const file = document.getElementById('file');
-        const reader = new FileReader();
-        const download = document.getElementById('download');
-        const form = document.getElementsByTagName('form')
-        
-        console.log(button)
-
-        let fileValue;
-
-
-        reader.addEventListener("load", function () {
-          frame.style.backgroundImage = `linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1)), url(${reader.result})`;
-         }, false);
-
-         
-         function enableSubmit() {
-          let inputs = document.getElementsByClassName('input__work'); // Enter your class name for a required field, this should also be reflected within your form fields.
-          
-          let isValid = true;
-          for (var i = 0; i < inputs.length; i++) {
-            let changedInput = inputs[i];
-            if (changedInput.value.trim() === "" || changedInput.value === null) {
-              isValid = false;
-              break;
-            }
-          }
-          if (file.value === "") {
-            fileValue = false;
-          }else {fileValue = true }
-
-          button.disabled = !(isValid && fileValue);
-          
-          if (!button.disabled) {
-            button.style.backgroundColor = 'var(--activeblue)';
-          }
-          else {
-            button.style.backgroundColor = 'var(--inactiveblue)';
-          }
-        }
-
-        button.addEventListener ('click' , function (e) {
-          e.preventDefault();
-
-          let fullName = document.getElementById('nameInput').value;
-          let workplace = document.getElementById('locationInput').value;   
-
-          const image = file.files[0];
-          if(image) reader.readAsDataURL(image);
-
-          let nameElement = document.getElementById('name');
-          let locationElement = document.getElementById('location');  
-
-          nameElement.innerHTML = fullName;
-          locationElement.innerHTML = workplace;
-
-          frame.style.visibility = "visible";
-          download.style.visibility = "visible";
-
-          form.reset()
-        })
-
-        document.getElementById("download").addEventListener("click", function() {
-          let fullName = document.getElementById('nameInput').value;
-		      html2canvas(document.getElementById("test-box"),
-          {
-            allowTaint: true,
-            useCORS: true
-          }).then(function (canvas) {
-            var anchorTag = document.createElement("a");
-            document.body.appendChild(anchorTag);
-            // document.getElementById("previewImg").appendChild(canvas);
-            anchorTag.download = `${fullName}.jpg`;
-            anchorTag.href = canvas.toDataURL();
-            anchorTag.target = '_blank';
-            anchorTag.click();
-          });
-        });
-     
-    </script> -->
   </body>
 </html>

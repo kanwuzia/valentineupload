@@ -148,8 +148,9 @@ body {
 .background {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 60px;
+  width: 100%;
   display: flex;
+  padding: 60px;
   justify-content: space-around;
   align-items: center;
 }
@@ -227,13 +228,14 @@ label {
 }
 @media screen and (max-width: 425px) {
   .background {
-    flex-direction: column;
+    flex-direction: column !important;
+    /* flex-direction: column !important; */
     padding: 40px;
   }
-  .image{
-    width: 100%;
+  .image-upload {
+    width: 100% !important;
   }
-  .form{
-    width: 100%;
+  .form {
+    width: 100% !important;
   }
 }
